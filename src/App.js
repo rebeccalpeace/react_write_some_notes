@@ -1,9 +1,9 @@
 import './App.css';
 
 function App() {
-  return (
-    
-  );
+	return (
+		"hello from write some notes"
+	);
 }
 
 export default App;
