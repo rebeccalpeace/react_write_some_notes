@@ -1,0 +1,45 @@
+.daily-container {  
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 1.5fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "DailyCard Words"
+      "DailyCard Words"
+      "WordsForm Words"
+      "WordsForm Words";
+  }
+  
+  .DailyCard { 
+      grid-area: DailyCard; 
+      border: solid black 2px;
+      background-color: yellow;
+    }
+  
+  .WordsForm { 
+      grid-area: WordsForm; 
+      border: solid black 2px;
+      background-color: orange;
+    }
+  
+  .Words { 
+      grid-area: Words; 
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      border: solid black 2px;
+      background-color: pink;
+    }
+
+  .play-word {
+    pointer-events: none;
+    border: solid black 1px;
+    background-color: white;
+    padding: 0 5px;
+    margin: 0 10px;
+  }
+  
