@@ -13,8 +13,7 @@ import DailyPromptCard from './components/DailyPromptCard';
 import RandomPromptCard from './components/RandomPromptCard';
 import PlayRandom from './components/PlayRandom';
 import PlayDaily from './components/PlayDaily';
-import WordsForm from './components/WordsForm';
-import CreateWord from './components/CreateWord';
+
 
 function App(props) {
 
@@ -61,8 +60,6 @@ function App(props) {
 					<Route path='/random' element={<RandomPromptCard />} />
 					<Route path='/playDaily' element={<PlayDaily />} />
 					<Route path='/playRandom' element={<PlayRandom />} />
-					<Route path='/wordsForm' element={<WordsForm />} />
-					<Route path='/createWord' element={<CreateWord />} />
 				</Routes>
 			</div>
 

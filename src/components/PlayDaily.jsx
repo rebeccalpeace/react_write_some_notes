@@ -1,10 +1,10 @@
 import React from 'react'
 import DailyPromptCard from './DailyPromptCard'
-import WordsForm from './WordsForm'
 import './PlayDaily.css'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import CreateWord from './CreateWord'
+import './WordsForm.css'
+
 
 export default function PlayDaily() {
 
@@ -31,10 +31,44 @@ export default function PlayDaily() {
             })
     }, [])
 
-    console.log(words, "second?")
+    console.log(words, "after useEffect")
+
+    const onDragOver = (e) => {
+        e.preventDefault();
+    }
+
+    const onDrop = (e, cat) => {
+        let played_word = e.dataTransfer.getData("word");
+
+        let allWords = words.filter((word) => {
+            if (word.word == played_word){
+                word.category = cat;
+            }
+            return word;
+        });
+        setWords(allWords)
+}
 
 
-    
+    const onDragStart = (e, word) => {
+        console.log('dragstart:', word);
+        e.dataTransfer.setData("word", word);
+    }
+
+    let tasks = {
+        toPlay: [],
+        played: []
+    }
+
+    words.forEach ((w) => {
+        tasks[w.category].push(
+            <div key={w.word} onDragStart = {(e) => onDragStart(e, w.word)} className="play-word" draggable>
+                {w.word}
+            </div>
+        );
+    });
+
+
     return (
         <>
             <div className="daily-container">
@@ -43,11 +77,12 @@ export default function PlayDaily() {
                 </div>
                 <div className="WordsForm">
                     <h5 className='text-center'>place words here</h5>
-                    <WordsForm />
+                    <div className="words-form text-center" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played")}>
+                        {tasks.played}
+                    </div>
                 </div>
-                <div className="Words">
-                    {words.map((word, i) => {return <CreateWord key={i} word={word} />})}
-                    
+                <div className="Words" onDragOver={(e) => onDragOver(e)} onDrop={(e)=>{onDrop(e, "toPlay")}}>
+                    {tasks.toPlay}
                 </div>
             </div>
         </>
