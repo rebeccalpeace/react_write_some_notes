@@ -1,8 +1,41 @@
 import React from 'react'
 import './SavedAnswer.css'
+import './SingleAnswer.css'
+import { useEffect, useState } from 'react'
 
 export default function SingleAnswer(props) {
-    console.log(props.post, "single answer page")
+    const [dailyId, setDailyId] = useState([]);
+    const [randomId, setRandomId] = useState([]);
+
+    useEffect(() => {
+
+        let token = localStorage.getItem('token')
+
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', "Bearer " + token);
+        myHeaders.append('Content-Type', 'application/json');
+
+        if (props.post.daily_id !== null){
+            fetch(`http://localhost:5000/api/daily_by_id/${props.post.daily_id}`, {
+            method: 'GET',
+            headers: myHeaders
+        })
+            .then(res => res.json())
+            .then(data => {
+                setDailyId(data)
+            })
+        } else if (props.post.prompt_id !== null){
+            fetch(`http://localhost:5000/api/random_by_id/${props.post.prompt_id}`, {
+            method: 'GET',
+            headers: myHeaders
+        })
+            .then(res => res.json())
+            .then(data => {
+                setRandomId(data)
+            })
+        }
+    }, []) 
+    
 
     let cleanedWords = []
 
@@ -22,8 +55,6 @@ export default function SingleAnswer(props) {
         cleanedWords.push(props.post.line5.split(" "))
     }
 
-
-    console.log(cleanedWords, "clean")
     let divs;
     
     if (cleanedWords.length === 1){
@@ -55,8 +86,12 @@ export default function SingleAnswer(props) {
 
     return (
         <>
-            <div className="container saved d-flex flex-column justify-content-around">
-                {divs}
+            <div className='row d-flex justify-content-around'>
+                {!props.post.prompt_id && <div className='my-auto col-4 text-center px-4'>{dailyId.prompt}</div>}
+                {!props.post.daily_id && <div className='my-auto col-4 text-center px-4'>{randomId.prompt}</div>}
+                <div className=" col-8 container single d-flex flex-column justify-content-around">
+                    {divs}
+                </div>
             </div>
         </>
     )

@@ -24,8 +24,6 @@ export default function Profile() {
             })
     }, [])   
 
-	console.log(myPosts, "profile page")
-
     return (
 		<>
 			{myPosts.map((post, i) => <SingleAnswer key={i} post={post}/>)}
