@@ -8,9 +8,8 @@ import { useEffect } from 'react'
 
 export default function PlayDaily() {
 
-    // call for daily prompt and send over the data to DailyPromptCard
-
 	// call for words and send to component or whatever the plan is
+
     const [words, setWords] = useState([])
 
     useEffect(() => {
@@ -19,7 +18,7 @@ export default function PlayDaily() {
 
         let myHeaders = new Headers();
         myHeaders.append('Authorization', "Bearer " + token);
-        myHeaders.append('Content-type', 'application/json');
+        myHeaders.append('Content-Type', 'application/json');
 
         fetch('http://localhost:5000/api/words', {
             method: 'GET',
@@ -29,6 +28,7 @@ export default function PlayDaily() {
             .then(data => {
                 setWords(data)
             })
+        
     }, [])
 
     console.log(words, "after useEffect")
