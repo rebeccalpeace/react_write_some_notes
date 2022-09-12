@@ -51,6 +51,10 @@
     background-color: white;
 }
 
+.clear-button {
+  align-self: left;
+}
+
 .word-container {  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;

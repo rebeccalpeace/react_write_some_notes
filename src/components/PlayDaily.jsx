@@ -51,6 +51,16 @@ export default function PlayDaily() {
         setWords(allWords)
 }
 
+    const handleClear = (e) => {
+        let allWords = words.filter((word) => {
+            if (word.category !== "toPlay"){
+                word.category = "toPlay"
+            }
+            return word;
+        })
+        setWords(allWords)
+    }
+
 
     const onDragStart = (e, word) => {
         console.log('dragstart:', word);
@@ -134,6 +144,7 @@ export default function PlayDaily() {
                         <div className="bb" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_bb")}>{tasks.played_bb}</div>
                         <div className="cc" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_cc")}>{tasks.played_cc}</div>
                     </div>
+                    <button className='btn btn-sm btn-warning clear-button mb-2' onClick={(e) => handleClear(e)}>clear board</button>
                 </div>
                 <div className="Words" onDragOver={(e) => onDragOver(e)} onDrop={(e)=>{onDrop(e, "toPlay")}}>
                     {tasks.toPlay}
