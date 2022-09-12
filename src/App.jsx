@@ -11,7 +11,6 @@ import Landing from './components/Landing';
 import Profile from './components/Profile';
 import DailyPromptCard from './components/DailyPromptCard';
 import RandomPromptCard from './components/RandomPromptCard';
-import PlayRandom from './components/PlayRandom';
 import PlayDaily from './components/PlayDaily';
 
 
@@ -59,7 +58,6 @@ function App(props) {
 					<Route path='/daily' element={<DailyPromptCard />} />
 					<Route path='/random' element={<RandomPromptCard />} />
 					<Route path='/playDaily' element={<PlayDaily />} />
-					<Route path='/playRandom' element={<PlayRandom />} />
 				</Routes>
 			</div>
 

@@ -1,13 +1,15 @@
 import React from 'react'
 import DailyPromptCard from './DailyPromptCard'
+import RandomPromptCard from './RandomPromptCard'
 import './PlayDaily.css'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 
 
 export default function PlayDaily() {
-
+    const { state } = useLocation();
+    console.log(state.dailyCard, "test for daily card")
 	// call for words and send to component or whatever the plan is
 
     const [words, setWords] = useState([])
@@ -99,7 +101,8 @@ export default function PlayDaily() {
         <>
             <div className="daily-container">
                 <div className="DailyCard">
-                    <DailyPromptCard />
+                    {state.dailyCard && <DailyPromptCard />}
+                    {!state.dailyCard && <RandomPromptCard />}
                 </div>
                 <div className="WordsForm">
                     <h5 className='text-center'>place words here</h5>
