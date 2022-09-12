@@ -51,8 +51,10 @@
     background-color: white;
 }
 
-.clear-button {
-  align-self: left;
+.save-button {
+  background-color: #fc0384;
+  color: white;
+  border: solid #fc0384;
 }
 
 .word-container {  display: grid;
