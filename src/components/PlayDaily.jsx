@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 
 export default function PlayDaily() {
+    let navigate = useNavigate();
     const { state } = useLocation();
     console.log(state.dailyCard, "test for daily card")
 	// call for words and send to component or whatever the plan is
@@ -68,11 +69,7 @@ export default function PlayDaily() {
         let line3 = [];
         let line4 = [];
         let line5 = [];
-        // join words from a-e and append to savedWords
-        // join words from g-k and ''
-        // join words from m-q and ''
-        // join words from s-w and ''
-        // join words from y-cc and ''
+        // join words for each line and append to savedWords
         for (let i in options){
             if (['played_a', 'played_b', 'played_c', 'played_d', 'played_e'].includes(i) && options[i][0] !== undefined){
                 line1.push(options[i][0].props.children)
@@ -86,7 +83,9 @@ export default function PlayDaily() {
                 line5.push(options[i][0].props.children)
             }
         }
-        console.log(line1, line2, line3, line4, line5)
+        console.log(line1)
+        savedWords.push(line1, line2, line3, line4, line5)
+        navigate('/savedAnswer', { state: { savedWords: savedWords }})
     }
 
 
