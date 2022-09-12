@@ -2,7 +2,7 @@ import React from 'react'
 import './DailyCard.css'
 import { useState, useEffect } from 'react';
 
-export default function DailyPromptCard() {
+export default function DailyPromptCard(props) {
 
     const [prompt, setPrompt] = useState(null);
 
@@ -21,12 +21,11 @@ export default function DailyPromptCard() {
             .then(res => res.json())
             .then(data => {
                 let dailyPrompt = data.prompt
+                props.setDailyId(data.id)
                 setPrompt(dailyPrompt)
             })
-        console.log(prompt)
+            
     }, [])   
-
-    console.log(prompt)
 
     return (
         <>

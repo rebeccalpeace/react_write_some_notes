@@ -5,7 +5,7 @@ import './SavedAnswer.css'
 
 export default function SavedAnswer() {
     const { state } = useLocation();   // state.savedWords is an array of 5 arrays (each one contains separate words from line)
-    console.log(state.savedWords, "hello from saved answer")
+
 
     let cleanedWords = []
 
@@ -14,8 +14,6 @@ export default function SavedAnswer() {
         cleanedWords.push(state.savedWords[i])
         }
     }
-    console.log(cleanedWords, "cleaned words")
-
 
     let divs;
     

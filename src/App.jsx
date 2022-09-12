@@ -58,7 +58,7 @@ function App(props) {
 					<Route path="/profile" element={<Profile />} />
 					<Route path='/daily' element={<DailyPromptCard />} />
 					<Route path='/random' element={<RandomPromptCard />} />
-					<Route path='/playDaily' element={<PlayDaily />} />
+					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage}/>} />
 					<Route path='/savedAnswer' element={<SavedAnswer />} />
 				</Routes>
 			</div>

@@ -7,13 +7,14 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 
 
-export default function PlayDaily() {
+export default function PlayDaily(props) {
     let navigate = useNavigate();
     const { state } = useLocation();
-    console.log(state.dailyCard, "test for daily card")
 	// call for words and send to component or whatever the plan is
 
     const [words, setWords] = useState([])
+    const [dailyId, setDailyId] = useState(null)
+    const [randomId, setRandomId] = useState(null)
 
     useEffect(() => {
 
@@ -34,7 +35,6 @@ export default function PlayDaily() {
         
     }, [])
 
-    console.log(words, "after useEffect")
 
     const onDragOver = (e) => {
         e.preventDefault();
@@ -63,6 +63,7 @@ export default function PlayDaily() {
     }
 
     const handleSave = (e) => {
+        e.preventDefault();
         let savedWords = [];
         let line1 = [];
         let line2 = [];
@@ -83,14 +84,46 @@ export default function PlayDaily() {
                 line5.push(options[i][0].props.children)
             }
         }
-        console.log(line1)
+        console.log(line1.join(" "), dailyId, randomId, "before fetch line1")
+
+        let token = localStorage.getItem('token')
+
+        let myHeaders = new Headers();
+        myHeaders.append('Authorization', "Bearer " + token);
+        myHeaders.append('Content-Type', 'application/json');
+
+        let formData = JSON.stringify({
+            url: null,
+            line1: line1.join(" "),
+            line2: line2.join(" "),
+            line3: line3.join(" "),
+            line4: line4.join(" "),
+            line5: line5.join(" "),
+            daily_id: dailyId,
+            prompt_id: randomId
+        })
+
+        fetch("http://localhost:5000/api/create_answer", {
+            method: 'POST',
+            headers: myHeaders,
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.error){
+                    console.error(data.error)
+                } else {
+                    props.flashMessage('You have submitted your answer successfully!', 'primary')
+                }
+            })
+
         savedWords.push(line1, line2, line3, line4, line5)
-        navigate('/savedAnswer', { state: { savedWords: savedWords }})
+
+        navigate('/savedAnswer', { state: { savedWords: savedWords, dailyId: dailyId, randomId: randomId }})
     }
 
 
     const onDragStart = (e, id, word) => {
-        console.log('dragstart:', word);
         e.dataTransfer.setData("id", id);
         e.dataTransfer.setData("word", word)
     }
@@ -139,8 +172,8 @@ export default function PlayDaily() {
         <>
             <div className="daily-container">
                 <div className="DailyCard">
-                    {state.dailyCard && <DailyPromptCard />}
-                    {!state.dailyCard && <RandomPromptCard />}
+                    {state.dailyCard && <DailyPromptCard setDailyId={setDailyId}/>}
+                    {!state.dailyCard && <RandomPromptCard setRandomId={setRandomId}/>}
                 </div>
                 <div className="WordsForm">
                     <h5 className='text-center'>place words here</h5>

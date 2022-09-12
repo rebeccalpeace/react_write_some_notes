@@ -2,7 +2,7 @@ import React from 'react'
 import './DailyCard.css'
 import { useState, useEffect } from 'react';
 
-export default function RandomPromptCard() {
+export default function RandomPromptCard(props) {
 
     const [prompt, setPrompt] = useState(null);
 
@@ -21,12 +21,10 @@ export default function RandomPromptCard() {
             .then(res => res.json())
             .then(data => {
                 let randomPrompt = data.prompt
+                props.setRandomId(data.id)
                 setPrompt(randomPrompt)
             })
-        console.log(prompt)
     }, [])   
-
-    console.log(prompt)
     
     return (
         <>
