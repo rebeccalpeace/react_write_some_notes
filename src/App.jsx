@@ -13,6 +13,7 @@ import DailyPromptCard from './components/DailyPromptCard';
 import RandomPromptCard from './components/RandomPromptCard';
 import PlayDaily from './components/PlayDaily';
 import SavedAnswer from './components/SavedAnswer';
+import SingleAnswer from './components/SingleAnswer';
 
 
 function App(props) {
@@ -60,6 +61,7 @@ function App(props) {
 					<Route path='/random' element={<RandomPromptCard />} />
 					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage}/>} />
 					<Route path='/savedAnswer' element={<SavedAnswer />} />
+					<Route path='/singleAnswer' element={<SingleAnswer />} />
 				</Routes>
 			</div>
 
