@@ -40,10 +40,10 @@ export default function PlayDaily() {
     }
 
     const onDrop = (e, cat) => {
-        let played_word = e.dataTransfer.getData("word");
+        let played_word = e.dataTransfer.getData("id");
 
         let allWords = words.filter((word) => {
-            if (word.word == played_word){
+            if (word.id == played_word){
                 word.category = cat;
             }
             return word;
@@ -90,9 +90,10 @@ export default function PlayDaily() {
     }
 
 
-    const onDragStart = (e, word) => {
+    const onDragStart = (e, id, word) => {
         console.log('dragstart:', word);
-        e.dataTransfer.setData("word", word);
+        e.dataTransfer.setData("id", id);
+        e.dataTransfer.setData("word", word)
     }
 
     let options = {
@@ -124,11 +125,11 @@ export default function PlayDaily() {
         played_cc: [],
     }
 
-    let letters = ['a', 'b', 'c', 'd', 'e', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 's', 't', 'u', 'v', 'w', 'y', 'z', 'aa', 'bb', 'cc']
+    // let letters = ['a', 'b', 'c', 'd', 'e', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 's', 't', 'u', 'v', 'w', 'y', 'z', 'aa', 'bb', 'cc']
 
     words.forEach ((w, i) => {
         options[w.category].push(
-            <div key={i} onDragStart = {(e) => onDragStart(e, w.word)} className="play-word" draggable>
+            <div key={i} onDragStart = {(e) => onDragStart(e, w.id, w.word)} className="play-word" draggable>
                 {w.word}
             </div>
         );
