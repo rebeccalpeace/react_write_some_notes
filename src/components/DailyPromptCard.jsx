@@ -1,8 +1,11 @@
 import React from 'react'
 import './DailyCard.css'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function DailyPromptCard(props) {
+
+    let navigate = useNavigate();
 
     const [prompt, setPrompt] = useState(null);
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Home(loggedIn) {
+export default function Home() {
 
     return (
         <>
-            <button className="btn btn-warning"><Link className="navbar-brand" to="/register">sign up</Link></button>
+            <h2 className='text-center fw-bold mt-5'>write some notes</h2>
         </>
     )
 }

@@ -10,6 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 export default function PlayDaily(props) {
 
     let navigate = useNavigate();
+
     const { state } = useLocation();
 	// call for words and send to component or whatever the plan is
 
