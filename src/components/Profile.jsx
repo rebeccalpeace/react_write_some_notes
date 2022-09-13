@@ -2,9 +2,9 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import SingleAnswer from './SingleAnswer'
 
-export default function Profile() {
-
+export default function Profile(props) {
 	const [myPosts, setMyPosts] = useState([])
+	// console.log(setMyPosts, "from profile")
 
 	useEffect(() => {
 
@@ -24,9 +24,10 @@ export default function Profile() {
             })
     }, [])   
 
+
     return (
 		<>
-			{myPosts.map((post, i) => <SingleAnswer key={i} post={post}/>)}
+			{myPosts.map((post, i) => <SingleAnswer key={i} post={post} setMyPosts={setMyPosts} />)}
       		
 		</>
     )

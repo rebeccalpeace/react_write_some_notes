@@ -1,66 +1,26 @@
 import React from 'react'
+import GetUsername from './GetUsername'
 import './SavedAnswer.css'
 import './SingleAnswer.css'
-import { useEffect, useState } from 'react'
-import DeleteButton from './DeleteButton'
-import { useNavigate } from 'react-router-dom'
 
-
-export default function SingleAnswer(post, setMyPosts) {
-    let navigate = useNavigate();
-
-    const [dailyId, setDailyId] = useState([]);
-    const [randomId, setRandomId] = useState([]);
-
-    // console.log(setMyPosts, "from single answer")
-
-
-    useEffect(() => {
-
-        let token = localStorage.getItem('token')
-
-        let myHeaders = new Headers();
-        myHeaders.append('Authorization', "Bearer " + token);
-        myHeaders.append('Content-Type', 'application/json');
-
-        if (post.post.daily_id !== null){
-            fetch(`http://localhost:5000/api/daily_by_id/${post.post.daily_id}`, {
-            method: 'GET',
-            headers: myHeaders
-        })
-            .then(res => res.json())
-            .then(data => {
-                setDailyId(data)
-            })
-        } else if (post.post.prompt_id !== null){
-            fetch(`http://localhost:5000/api/random_by_id/${post.post.prompt_id}`, {
-            method: 'GET',
-            headers: myHeaders
-        })
-            .then(res => res.json())
-            .then(data => {
-                setRandomId(data)
-            })
-        }
-    }, []) 
-    
+export default function BuildSingle(answer, prompt) {
 
     let cleanedWords = []
 
-    if (post.post.line1 !== ''){
-        cleanedWords.push(post.post.line1.split(" "))
+    if (answer.answer.line1 !== ''){
+        cleanedWords.push(answer.answer.line1.split(" "))
     }
-    if (post.post.line2 !== ''){
-        cleanedWords.push(post.post.line2.split(" "))
+    if (answer.answer.line2 !== ''){
+        cleanedWords.push(answer.answer.line2.split(" "))
     }
-    if (post.post.line3 !== ''){
-        cleanedWords.push(post.post.line3.split(" "))
+    if (answer.answer.line3 !== ''){
+        cleanedWords.push(answer.answer.line3.split(" "))
     }
-    if (post.post.line4 !== ''){
-        cleanedWords.push(post.post.line4.split(" "))
+    if (answer.answer.line4 !== ''){
+        cleanedWords.push(answer.answer.line4.split(" "))
     }
-    if (post.post.line5 !== ''){
-        cleanedWords.push(post.post.line5.split(" "))
+    if (answer.answer.line5 !== ''){
+        cleanedWords.push(answer.answer.line5.split(" "))
     }
 
     let divs;
@@ -94,17 +54,14 @@ export default function SingleAnswer(post, setMyPosts) {
 
     return (
         <>
+            
             <div className='row d-flex justify-content-around'>
-                {!post.post.prompt_id && <div className='my-auto col-4 text-center px-4' onClick={() => (navigate('/allDaily', { state: {id: post.post.daily_id, prompt: dailyId.prompt}}))}>{dailyId.prompt}</div>}
-                {!post.post.daily_id && <div className='my-auto col-4 text-center px-4' onClick={() => (navigate('/allRandom', { state: {id: post.post.prompt_id, prompt: randomId.prompt}}))}>{randomId.prompt}</div>}
                 <div className=" col-8 container single d-flex flex-column justify-content-around">
                     {divs}
-                    <div>
-                        {/* <DeleteButton answer_id={post.post.id} setMyPosts={setMyPosts} /> */}
-                    </div>
                 </div>
-                
             </div>
+            <GetUsername user_id={answer.answer.user_id}/>
         </>
+
     )
 }

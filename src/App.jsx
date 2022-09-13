@@ -14,6 +14,11 @@ import RandomPromptCard from './components/RandomPromptCard';
 import PlayDaily from './components/PlayDaily';
 import SavedAnswer from './components/SavedAnswer';
 import SingleAnswer from './components/SingleAnswer';
+import DeleteButton from './components/DeleteButton';
+import AllDaily from './components/AllDaily';
+import AllRandom from './components/AllRandom';
+import GetUsername from './components/GetUsername';
+
 
 
 function App(props) {
@@ -23,6 +28,7 @@ function App(props) {
 	const [message, setMessage] = useState(null);
 	const [category, setCategory] = useState(null);
 	const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token') && new Date(localStorage.getItem('expiration')) > now) ? true : false);
+	const [myPosts, setMyPosts] = useState([])
 
 	const flashMessage = (message, category) => {
 		setMessage(message);
@@ -56,12 +62,17 @@ function App(props) {
 					<Route path="/login" element={<Login />} />
 					<Route path="/rules" element={<Rules />} />
 					<Route path="/landing" element={<Landing />} />
-					<Route path="/profile" element={<Profile />} />
+					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts}/>} />
 					<Route path='/daily' element={<DailyPromptCard />} />
 					<Route path='/random' element={<RandomPromptCard />} />
 					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage}/>} />
 					<Route path='/savedAnswer' element={<SavedAnswer />} />
 					<Route path='/singleAnswer' element={<SingleAnswer />} />
+					<Route path='/deleteButton' element={<DeleteButton />} />
+					<Route path='/allDaily' element={<AllDaily />} />
+					<Route path='/allRandom' element={<AllRandom />} />
+					<Route path='/getUsername' element={<GetUsername />} />
+
 				</Routes>
 			</div>
 
