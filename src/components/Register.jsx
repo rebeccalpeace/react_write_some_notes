@@ -1,11 +1,17 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function Register(props) {
+export default function Register({flashMessage, login, verifyUser, loggedIn}) {
+
+    const [shouldLogin, setShouldLogin] = useState(false);
+    const [username, setUsername] = useState(null);
+    const [password, setPassword] = useState(null);
 
     let navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
         console.log(e.target.username.value)
@@ -13,8 +19,8 @@ export default function Register(props) {
         let password = e.target.password.value;
         let confirmPassword = e.target.confirmPassword.value;
         if (password !== confirmPassword){
-            navigate('/')
-            props.flashMessage('Passwords do not match', 'danger')
+            navigate('/register')
+            flashMessage('Passwords do not match', 'danger')
             console.log('passwords do not match')
         } else {
             console.log('Passwords match!')
@@ -31,7 +37,7 @@ export default function Register(props) {
                 password: e.target.password.value
             })
 
-            fetch("http://localhost:5000/api/users", {
+            await fetch("http://localhost:5000/api/users", {
                 method: 'POST',
                 headers: myHeaders,
                 body: formData
@@ -40,11 +46,14 @@ export default function Register(props) {
                 .then(data => {
                     if (data.error){
                         console.log(data.error)
-                        navigate('/')
-                        props.flashMessage('This username and/or email already exists', 'warning')
+                        navigate('/register')
+                        flashMessage('This username and/or email already exists', 'warning')
                     } else {
-                        navigate('/')
-                        props.flashMessage('You have successfully signed up!', 'primary')
+                        flashMessage('You have successfully signed up!', 'primary')
+                        setUsername(e.target.username.value)
+                        setPassword(e.target.password.value)
+                        setShouldLogin(true)
+
                     }
                 })
             }
@@ -55,6 +64,45 @@ export default function Register(props) {
         e.target.password.value = '';
         e.target.confirmPassword.value = '';
     }
+
+    useEffect(() => {
+        
+        if (shouldLogin){
+            const fetchToken = async () => {
+                console.log(username)
+                console.log(password, "test password")
+                
+                let myHeaders = new Headers();
+                myHeaders.append('Authorization', "Basic " + btoa(`${username}:${password}`))
+
+                let response = await fetch("http://localhost:5000/api/token", {
+                    method: 'GET',
+                    headers: myHeaders
+                });
+                if (response.ok){
+                    console.log('ok!')
+                    let data = response.json();
+                console.log(data)
+    
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('expiration', data.token_expiration);
+
+                login();
+
+                flashMessage('You are now loggedin ', 'primary')
+                navigate('/landing')
+                console.log('logged in')
+                } else {
+                    flashMessage('Your username and/or password are incorrect', 'warning')
+                }
+                verifyUser(username)
+                }
+                setShouldLogin(false)
+
+            fetchToken();
+            
+            }
+    }, [shouldLogin])
 
     return (
         <>

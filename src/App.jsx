@@ -58,7 +58,7 @@ function App(props) {
 				{message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null}
 				<Routes>
 					<Route path="/" element={<Home loggedIn={loggedIn} />} />
-					<Route path="/register" element={<Register flashMessage={flashMessage} />} />
+					<Route path="/register" element={<Register flashMessage={flashMessage} login={login} verifyUser={verifyUser} loggedIn={loggedIn} />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/rules" element={<Rules />} />
 					<Route path="/landing" element={<Landing />} />
