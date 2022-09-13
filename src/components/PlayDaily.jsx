@@ -43,6 +43,7 @@ export default function PlayDaily(props) {
     const onDrop = (e, cat) => {
         let played_word = e.dataTransfer.getData("id");
 
+        if (cat != "toPlay"){
         let allWords = words.map((word) => {
             if (word.id == played_word && options[cat].length === 0){
                 word.category = cat;
@@ -50,7 +51,15 @@ export default function PlayDaily(props) {
             return word;
         });
         setWords(allWords)
-    
+        } else {
+            let allWords = words.map((word) => {
+                if (word.id == played_word){
+                    word.category = cat;
+                } 
+                return word;
+            });
+            setWords(allWords)
+        }
 }
 
     const handleClear = (e) => {
