@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 
 export default function PlayDaily(props) {
+
     let navigate = useNavigate();
     const { state } = useLocation();
 	// call for words and send to component or whatever the plan is
@@ -44,7 +45,7 @@ export default function PlayDaily(props) {
         let played_word = e.dataTransfer.getData("id");
 
         if (cat != "toPlay"){
-        let allWords = words.map((word) => {
+        let allWords = words.filter((word) => {
             if (word.id == played_word && options[cat].length === 0){
                 word.category = cat;
             } 
@@ -52,7 +53,7 @@ export default function PlayDaily(props) {
         });
         setWords(allWords)
         } else {
-            let allWords = words.map((word) => {
+            let allWords = words.filter((word) => {
                 if (word.id == played_word){
                     word.category = cat;
                 } 
@@ -188,7 +189,7 @@ export default function PlayDaily(props) {
                 <div className="WordsForm">
                     <h5 className='text-center'>place words here</h5>
                     <div className="word-container words-form">
-                        {letters.map((letter, i) => <div className={letter} onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, `played_${letter}`)}>{options[`played_${letter}`]}</div>)}
+                        {letters.map((letter, i) => <div key={i} className={letter} onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, `played_${letter}`)}>{options[`played_${letter}`]}</div>)}
                      
                     </div>
                     <div className='d-flex justify-content-around'>

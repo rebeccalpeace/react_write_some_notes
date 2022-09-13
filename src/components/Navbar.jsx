@@ -74,7 +74,7 @@ export default function Navbar(props) {
                                         </div>
                                     </div>
                                 </div>
-                                <Login loggedIn={props.loggedIn} login={props.login} flashMessage={props.flashMessage} username={props.username} verifyUser={props.verifyUser} />
+                                <Login loggedIn={props.loggedIn} login={props.login} flashMessage={props.flashMessage} verifyUser={props.verifyUser} />
                                 
                             </div>
                             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">

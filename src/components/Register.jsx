@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-export default function Register({flashMessage, login, verifyUser, loggedIn}) {
+export default function Register({flashMessage, login, verifyUser, loggedIn, username, setUsername}) {
 
     const [shouldLogin, setShouldLogin] = useState(false);
-    const [username, setUsername] = useState(null);
+
     const [password, setPassword] = useState(null);
 
     let navigate = useNavigate();
@@ -81,7 +81,7 @@ export default function Register({flashMessage, login, verifyUser, loggedIn}) {
                 });
                 if (response.ok){
                     console.log('ok!')
-                    let data = response.json();
+                    let data = await response.json();
                 console.log(data)
     
                 localStorage.setItem('token', data.token);
@@ -92,6 +92,7 @@ export default function Register({flashMessage, login, verifyUser, loggedIn}) {
                 flashMessage('You are now loggedin ', 'primary')
                 navigate('/landing')
                 console.log('logged in')
+                console.log(data.token)
                 } else {
                     flashMessage('Your username and/or password are incorrect', 'warning')
                 }
@@ -100,9 +101,10 @@ export default function Register({flashMessage, login, verifyUser, loggedIn}) {
                 setShouldLogin(false)
 
             fetchToken();
-            
+
             }
     }, [shouldLogin])
+
 
     return (
         <>
