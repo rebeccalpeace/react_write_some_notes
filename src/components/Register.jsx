@@ -90,7 +90,7 @@ export default function Register({flashMessage, login, verifyUser, loggedIn, use
                 login();
 
                 flashMessage('You are now loggedin ', 'primary')
-                navigate('/landing')
+                navigate('/profile')
                 console.log('logged in')
                 console.log(data.token)
                 } else {
