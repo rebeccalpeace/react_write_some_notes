@@ -43,13 +43,14 @@ export default function PlayDaily(props) {
     const onDrop = (e, cat) => {
         let played_word = e.dataTransfer.getData("id");
 
-        let allWords = words.filter((word) => {
-            if (word.id == played_word){
+        let allWords = words.map((word) => {
+            if (word.id == played_word && options[cat].length === 0){
                 word.category = cat;
-            }
+            } 
             return word;
         });
         setWords(allWords)
+    
 }
 
     const handleClear = (e) => {
@@ -157,7 +158,7 @@ export default function PlayDaily(props) {
         played_cc: [],
     }
 
-    // let letters = ['a', 'b', 'c', 'd', 'e', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 's', 't', 'u', 'v', 'w', 'y', 'z', 'aa', 'bb', 'cc']
+    let letters = ['a', 'b', 'c', 'd', 'e', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 's', 't', 'u', 'v', 'w', 'y', 'z', 'aa', 'bb', 'cc']
 
     words.forEach ((w, i) => {
         options[w.category].push(
@@ -178,32 +179,8 @@ export default function PlayDaily(props) {
                 <div className="WordsForm">
                     <h5 className='text-center'>place words here</h5>
                     <div className="word-container words-form">
-                        {/* {letters.map((letter, i) => <div className={letter} onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, `played_${letter}`)}>{tasks.played_`${letter}`}</div>)} */}
-                        <div className="a" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_a")}>{options.played_a}</div>
-                        <div className="b" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_b")}>{options.played_b}</div>
-                        <div className="c" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_c")}>{options.played_c}</div>
-                        <div className="d" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_d")}>{options.played_d}</div>
-                        <div className="e" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_e")}>{options.played_e}</div>
-                        <div className="g" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_g")}>{options.played_g}</div>
-                        <div className="h" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_h")}>{options.played_h}</div>
-                        <div className="i" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_i")}>{options.played_i}</div>
-                        <div className="j" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_j")}>{options.played_j}</div>
-                        <div className="k" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_k")}>{options.played_k}</div>
-                        <div className="m" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_m")}>{options.played_m}</div>
-                        <div className="n" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_n")}>{options.played_n}</div>
-                        <div className="o" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_o")}>{options.played_o}</div>
-                        <div className="p" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_p")}>{options.played_p}</div>
-                        <div className="q" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_q")}>{options.played_q}</div>
-                        <div className="s" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_s")}>{options.played_s}</div>
-                        <div className="t" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_t")}>{options.played_t}</div>
-                        <div className="u" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_u")}>{options.played_u}</div>
-                        <div className="v" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_v")}>{options.played_v}</div>
-                        <div className="w" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_w")}>{options.played_w}</div>
-                        <div className="y" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_y")}>{options.played_y}</div>
-                        <div className="z" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_z")}>{options.played_z}</div>
-                        <div className="aa" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_aa")}>{options.played_aa}</div>
-                        <div className="bb" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_bb")}>{options.played_bb}</div>
-                        <div className="cc" onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, "played_cc")}>{options.played_cc}</div>
+                        {letters.map((letter, i) => <div className={letter} onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, `played_${letter}`)}>{options[`played_${letter}`]}</div>)}
+                     
                     </div>
                     <div className='d-flex justify-content-around'>
                         <button className='btn btn-sm btn-warning mb-2' onClick={(e) => handleClear(e)}>clear board</button>

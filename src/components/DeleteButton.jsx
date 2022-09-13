@@ -2,13 +2,12 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import './PlayDaily.css'
 
-export default function DeleteButton(id, setMyPosts) {
-    // console.log(setMyPosts, "delete button")
+export default function DeleteButton({id, setMyPosts}) {
 
     function useDeleteAnswer() {
         const [shouldRefetchAnswers, setShouldRefetchAnswers] = useState(false)
         const [deleteError, setDeleteError] = useState(false)
-        const [newAnswers, setNewAnswers] = useState([])
+        const [newAnswers, setNewAnswers] = useState(null)
 
         const handleDeleteClick = (id) => {
             console.log(id)
@@ -20,12 +19,10 @@ export default function DeleteButton(id, setMyPosts) {
             myHeaders.append('Authorization', 'Bearer ' + token)
             myHeaders.append('Content-Type', 'application/json');
 
-            let raw = '';
 
             fetch(`http://localhost:5000/api/delete_answer/${id}`, {
                 method: 'DELETE',
-                headers: myHeaders,
-                body: raw
+                headers: myHeaders
             })
                 .then(res => res.json())
                 .then(data => {
@@ -41,7 +38,17 @@ export default function DeleteButton(id, setMyPosts) {
 
         useEffect(() => {
             if (shouldRefetchAnswers){
-                fetch('http://localhost:5000/api/answers_by_user')
+
+                let token = localStorage.getItem('token')
+
+                let myHeaders = new Headers();
+                myHeaders.append('Authorization', "Bearer " + token);
+                myHeaders.append('Content-Type', 'application/json');
+
+                fetch('http://localhost:5000/api/answers_by_user', {
+                    method: 'GET',
+                    headers: myHeaders
+                })
                     .then(res => res.json())
                     .then(data => {
                         if (data.error){
@@ -70,8 +77,6 @@ export default function DeleteButton(id, setMyPosts) {
             setMyPosts(newAnswers)
         }
     }, [newAnswers])
-
-
 
 
     return (

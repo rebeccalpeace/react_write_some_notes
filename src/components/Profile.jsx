@@ -4,7 +4,6 @@ import SingleAnswer from './SingleAnswer'
 
 export default function Profile(props) {
 	const [myPosts, setMyPosts] = useState([])
-	// console.log(setMyPosts, "from profile")
 
 	useEffect(() => {
 
@@ -22,7 +21,7 @@ export default function Profile(props) {
             .then(data => {
                 setMyPosts(data)
             })
-    }, [])   
+    }, [myPosts])   
 
 
     return (
