@@ -63,13 +63,13 @@ function App(props) {
 			<div className="container">
 				{message ? <AlertMessage message={message} category={category} alertVisible={alertVisible} setAlertVisible={setAlertVisible} flashMessage={flashMessage} /> : null}
 				<Routes>
-					<Route path="/" element={<Home loggedIn={loggedIn} />} />
+					<Route path="/" element={<Home />} />
 					<Route path="/register" element={<Register flashMessage={flashMessage} login={login} verifyUser={verifyUser} loggedIn={loggedIn} username={username} setUsername={setUsername} />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/rules" element={<Rules />} />
-					<Route path="/landing" element={<Landing />} />
-					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts}/>} />
-					<Route path='/daily' element={<DailyPromptCard />} />
+					<Route path="/landing" element={<Landing loggedIn={loggedIn} flashMessage={flashMessage} />} />
+					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} />} />
+					<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn} />} />
 					<Route path='/random' element={<RandomPromptCard />} />
 					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage}/>} />
 					<Route path='/savedAnswer' element={<SavedAnswer />} />
