@@ -29,10 +29,16 @@ function App(props) {
 	const [category, setCategory] = useState(null);
 	const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token') && new Date(localStorage.getItem('expiration')) > now) ? true : false);
 	const [myPosts, setMyPosts] = useState([])
+	const [alertVisible, setAlertVisible] = useState(false)
 
 	const flashMessage = (message, category) => {
 		setMessage(message);
 		setCategory(category);
+		setAlertVisible(true);
+
+		setTimeout(() => {
+			setAlertVisible(false);
+		}, 3000);
 	}
 
 	const verifyUser = (username) => {
@@ -55,7 +61,7 @@ function App(props) {
 		<>
 			<Navbar loggedIn={loggedIn} logout={logout} login={login} flashMessage={flashMessage} username={username} verifyUser={verifyUser}/>
 			<div className="container">
-				{message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null}
+				{message ? <AlertMessage message={message} category={category} alertVisible={alertVisible} setAlertVisible={setAlertVisible} flashMessage={flashMessage} /> : null}
 				<Routes>
 					<Route path="/" element={<Home loggedIn={loggedIn} />} />
 					<Route path="/register" element={<Register flashMessage={flashMessage} login={login} verifyUser={verifyUser} loggedIn={loggedIn} />} />
