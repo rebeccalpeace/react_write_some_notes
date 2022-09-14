@@ -18,6 +18,7 @@ import DeleteButton from './components/DeleteButton';
 import AllDaily from './components/AllDaily';
 import AllRandom from './components/AllRandom';
 import GetUsername from './components/GetUsername';
+import EditForm from './components/EditForm';
 
 
 
@@ -79,6 +80,7 @@ function App(props) {
 					<Route path='/allDaily' element={<AllDaily />} />
 					<Route path='/allRandom' element={<AllRandom />} />
 					<Route path='/getUsername' element={<GetUsername />} />
+					<Route path='/editForm' element={<EditForm flashMessage={flashMessage} setUsername={setUsername} />} />
 
 				</Routes>
 			</div>

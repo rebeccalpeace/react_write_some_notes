@@ -83,8 +83,9 @@ export default function Profile(props) {
             
             <div className='d-flex justify-content-between'>
                 <div className='w-25 me-5'>
-                    <h3>{props.username}</h3>
-                    <button className='btn btn-warning btn-sm mt-2'>edit profile</button>
+                    <h3>{userData.username}</h3>
+                    <h5>{userData.email}</h5>
+                    <button className='btn btn-warning btn-sm mt-2' onClick={() => (navigate('/editForm', { state: {id: userData.id, email: userData.email, username: userData.username, first_name: userData.first_name, last_name: userData.last_name}}))}>edit profile</button>
                     <div className='games mt-2'>my games - {userData.answers?.length}</div>
                     <hr />
                 </div>
