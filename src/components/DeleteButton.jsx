@@ -84,7 +84,7 @@ export default function DeleteButton({id, setMyPosts}) {
             <div className="btn-group delete-button">
                 <button className="btn btn-sm btn-danger dropdown-toggle text-center my-auto" data-bs-toggle="dropdown" aria-expanded="false">delete</button>
                 <ul className="dropdown-menu">
-                    <li><a className="dropdown-item">Are you sure?</a></li>
+                    <li className='text-center'>Are you sure?</li>
                     <li><hr className="dropdown-divider" /></li>
                     <li><a className="dropdown-item" onClick={() => handleDeleteClick(id)}>Delete</a></li>
                 </ul>

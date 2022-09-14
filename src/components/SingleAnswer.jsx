@@ -1,6 +1,7 @@
 import React from 'react'
 import './SavedAnswer.css'
 import './SingleAnswer.css'
+import './DailyCard.css'
 import { useEffect, useState } from 'react'
 import DeleteButton from './DeleteButton'
 import { useNavigate } from 'react-router-dom'
@@ -93,8 +94,8 @@ export default function SingleAnswer({post, setMyPosts}) {
     return (
         <>
             <div className='d-flex justify-content-around'>
-                {!post.prompt_id && <div className='btn my-auto col-4 text-center px-4' onClick={() => (navigate('/allDaily', { state: {id: post.daily_id, prompt: dailyId.prompt}}))}>{dailyId.prompt}</div>}
-                {!post.daily_id && <div className='btn my-auto col-4 text-center px-4' onClick={() => (navigate('/allRandom', { state: {id: post.prompt_id, prompt: randomId.prompt}}))}>{randomId.prompt}</div>}
+                {!post.prompt_id && <div className='btn pt-5 my-auto col-4 text-center px-4 daily' onClick={() => (navigate('/allDaily', { state: {id: post.daily_id, prompt: dailyId.prompt}}))}>{dailyId.prompt}</div>}
+                {!post.daily_id && <div className='btn pt-5 my-auto col-4 text-center px-4 daily' onClick={() => (navigate('/allRandom', { state: {id: post.prompt_id, prompt: randomId.prompt}}))}>{randomId.prompt}</div>}
                 <div className=" col-8 container single d-flex flex-column justify-content-around">
                     {divs}
                     <div>

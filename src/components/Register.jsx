@@ -81,7 +81,7 @@ export default function Register({flashMessage, login, verifyUser, loggedIn, use
                 });
                 if (response.ok){
                     console.log('ok!')
-                    let data =await response.json();
+                    let data = await response.json();
                 console.log(data)
     
                 localStorage.setItem('token', data.token);

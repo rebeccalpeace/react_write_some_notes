@@ -24,7 +24,7 @@ import GetUsername from './components/GetUsername';
 function App(props) {
 
 	const now = new Date();
-	const [username, setUsername] = useState(null);
+	const [username, setUsername] = useState(localStorage.getItem('username'));
 	const [message, setMessage] = useState(null);
 	const [category, setCategory] = useState(null);
 	const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token') && new Date(localStorage.getItem('expiration')) > now) ? true : false);
@@ -38,7 +38,7 @@ function App(props) {
 
 		setTimeout(() => {
 			setAlertVisible(false);
-		}, 3000);
+		}, 2000);
 	}
 
 	const verifyUser = (username) => {
