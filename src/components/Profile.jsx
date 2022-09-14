@@ -83,12 +83,12 @@ export default function Profile(props) {
             
             <div className='d-flex justify-content-between'>
                 <div className='w-25 me-5'>
-                    <h3>{userData.username}</h3>
+                    <h3>{props.username}</h3>
                     <button className='btn btn-warning btn-sm mt-2'>edit profile</button>
                     <div className='games mt-2'>my games - {userData.answers?.length}</div>
                     <hr />
                 </div>
-                <div>
+                <div className='w-75'>
                 <div className='text-center games-title'>my games</div>
                 <hr />
 			    {myPosts.map((post, i) => <SingleAnswer key={i} post={post} setMyPosts={setMyPosts} />)}

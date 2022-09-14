@@ -30,6 +30,7 @@ export default function Login(props) {
 
         localStorage.setItem('token', data.token);
         localStorage.setItem('expiration', data.token_expiration);
+        localStorage.setItem('username', username)
 
         props.login();
 

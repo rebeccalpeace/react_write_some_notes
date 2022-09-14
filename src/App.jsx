@@ -52,6 +52,7 @@ function App(props) {
 	const logout = () => {
 		localStorage.removeItem('token');
 		localStorage.removeItem('expiration');
+		localStorage.removeItem('username')
 		setLoggedIn(false)
 		console.log('logging out')
 	}

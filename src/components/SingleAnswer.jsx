@@ -94,8 +94,8 @@ export default function SingleAnswer({post, setMyPosts}) {
     return (
         <>
             <div className='d-flex justify-content-around'>
-                {!post.prompt_id && <div className='btn pt-5 my-auto col-4 text-center px-4 daily' onClick={() => (navigate('/allDaily', { state: {id: post.daily_id, prompt: dailyId.prompt}}))}>{dailyId.prompt}</div>}
-                {!post.daily_id && <div className='btn pt-5 my-auto col-4 text-center px-4 daily' onClick={() => (navigate('/allRandom', { state: {id: post.prompt_id, prompt: randomId.prompt}}))}>{randomId.prompt}</div>}
+                {!post.prompt_id && <div className='btn py-auto my-auto col-4 text-center px-4 daily d-flex flex-column justify-content-center' onClick={() => (navigate('/allDaily', { state: {id: post.daily_id, prompt: dailyId.prompt}}))}>{dailyId.prompt}</div>}
+                {!post.daily_id && <div className='btn py-auto my-auto col-4 text-center px-4 daily d-flex flex-column justify-content-center' onClick={() => (navigate('/allRandom', { state: {id: post.prompt_id, prompt: randomId.prompt}}))}>{randomId.prompt}</div>}
                 <div className=" col-8 container single d-flex flex-column justify-content-around">
                     {divs}
                     <div>

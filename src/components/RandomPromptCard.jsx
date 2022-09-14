@@ -28,8 +28,8 @@ export default function RandomPromptCard(props) {
     
     return (
         <>
-            <div className='daily text-center'>
-                <h6 className="mt-5">{prompt}</h6>
+            <div className='daily text-center d-flex flex-column justify-content-center'>
+                <h6>{prompt}</h6>
             </div>
         </>
     )
