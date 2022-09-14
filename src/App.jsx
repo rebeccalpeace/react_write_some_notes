@@ -68,7 +68,7 @@ function App(props) {
 					<Route path="/login" element={<Login />} />
 					<Route path="/rules" element={<Rules />} />
 					<Route path="/landing" element={<Landing loggedIn={loggedIn} flashMessage={flashMessage} />} />
-					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} />} />
+					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} username={username} />} />
 					<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn} />} />
 					<Route path='/random' element={<RandomPromptCard />} />
 					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage}/>} />

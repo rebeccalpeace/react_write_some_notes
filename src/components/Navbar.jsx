@@ -6,7 +6,6 @@ import Rules from './Rules';
 export default function Navbar(props) {
     let NavbarShown;
     if (props.loggedIn === true){
-        console.log("navbar", props)
         NavbarShown = <nav className="navbar navbar-dark bg-dark">
                         <div className="container-fluid">
                             {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
