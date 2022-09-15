@@ -13,9 +13,10 @@ export default function PlayDaily(props) {
 
     const { state } = useLocation();
 	// call for words and send to component or whatever the plan is
+    console.log(state, "test state")
+    console.log(props, "test props")
 
     const [words, setWords] = useState([])
-    const [dailyId, setDailyId] = useState(null)
     const [randomId, setRandomId] = useState(null)
 
     useEffect(() => {
@@ -96,7 +97,7 @@ export default function PlayDaily(props) {
                 line5.push(options[i][0].props.children)
             }
         }
-        console.log(line1.join(" "), dailyId, randomId, "before fetch line1")
+       
 
         let token = localStorage.getItem('token')
 
@@ -111,7 +112,7 @@ export default function PlayDaily(props) {
             line3: line3.join(" "),
             line4: line4.join(" "),
             line5: line5.join(" "),
-            daily_id: dailyId,
+            daily_id: props.dailyId,
             prompt_id: randomId
         })
 
@@ -131,7 +132,7 @@ export default function PlayDaily(props) {
 
         savedWords.push(line1, line2, line3, line4, line5)
 
-        navigate('/savedAnswer', { state: { savedWords: savedWords, dailyId: dailyId, randomId: randomId }})
+        navigate('/savedAnswer', { state: { savedWords: savedWords, dailyId: props.dailyId, randomId: randomId }})
     }
 
 
@@ -184,7 +185,7 @@ export default function PlayDaily(props) {
         <>
             <div className="daily-container">
                 <div className="DailyCard">
-                    {state.dailyCard && <DailyPromptCard setDailyId={setDailyId}/>}
+                    {state.dailyCard && <DailyPromptCard setDailyId={props.setDailyId}/>}
                     {!state.dailyCard && <RandomPromptCard setRandomId={setRandomId}/>}
                 </div>
                 <div className="WordsForm">

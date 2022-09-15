@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import BuildSingle from './BuildSingle';
 
@@ -31,6 +31,10 @@ export default function AllRandom() {
 
     return (
 		<>
+            <div className='d-flex justify-content-center my-4'>
+                <Link to="/profile" className='btn btn-warning mx-4'>my games</Link>
+                <Link to="/landing" className='btn btn-warning mx-4'>play</Link>
+            </div>
 			<div className='text-center my-3 fs-4 fw-bold'>{state.prompt}</div>
 			{allAnswers.map((answer, i) => <BuildSingle key={i} answer={answer} />)}
 		</>

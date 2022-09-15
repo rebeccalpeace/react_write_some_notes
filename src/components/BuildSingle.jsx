@@ -56,7 +56,7 @@ export default function BuildSingle(answer, prompt) {
         <>
             
             <div className='row d-flex justify-content-around'>
-                <div className=" col-8 container single d-flex flex-column justify-content-around">
+                <div className=" col-8 mx-auto container single d-flex flex-column justify-content-around">
                     {divs}
                 </div>
             </div>

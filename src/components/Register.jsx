@@ -86,6 +86,7 @@ export default function Register({flashMessage, login, verifyUser, loggedIn, use
     
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('expiration', data.token_expiration);
+                localStorage.setItem('username', username)
 
                 login();
 

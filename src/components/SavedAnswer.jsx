@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import './SavedAnswer.css'
+
 
 export default function SavedAnswer() {
     const { state } = useLocation();   // state.savedWords is an array of 5 arrays (each one contains separate words from line)
@@ -48,9 +49,14 @@ export default function SavedAnswer() {
 
     return (
         <>
+            <div className='d-flex justify-content-center my-4'>
+                <Link to="/profile" className='btn btn-warning mx-4'>my games</Link>
+                {/* <Link to="/landing" className='btn btn-warning mx-4'>play again</Link> */}
+            </div>
             <div className="container saved d-flex flex-column justify-content-around">
                 {divs}
             </div>
+            
         </>
     )
 }

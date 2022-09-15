@@ -24,16 +24,19 @@ export default function DailyPromptCard(props) {
             .then(res => res.json())
             .then(data => {
                 let dailyPrompt = data.prompt
+                // localStorage.setItem('daily', data.id)
                 props.setDailyId(data.id)
                 setPrompt(dailyPrompt)
+
             })
             
     }, [])   
 
+
     return (
         <>
-            <div className='daily text-center'>
-                <h6 className="mt-5">{prompt}</h6>
+            <div className='daily text-center d-flex flex-column justify-content-center'>
+                <h6>{prompt}</h6>
             </div>
         </>
     )

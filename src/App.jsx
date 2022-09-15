@@ -7,7 +7,6 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Rules from './components/Rules';
 import AlertMessage from './components/AlertMessage';
-import Landing from './components/Landing';
 import Profile from './components/Profile';
 import DailyPromptCard from './components/DailyPromptCard';
 import RandomPromptCard from './components/RandomPromptCard';
@@ -18,18 +17,20 @@ import DeleteButton from './components/DeleteButton';
 import AllDaily from './components/AllDaily';
 import AllRandom from './components/AllRandom';
 import GetUsername from './components/GetUsername';
+import EditForm from './components/EditForm';
 
 
 
 function App(props) {
 
 	const now = new Date();
-	const [username, setUsername] = useState(null);
+	const [username, setUsername] = useState(localStorage.getItem('username'));
 	const [message, setMessage] = useState(null);
 	const [category, setCategory] = useState(null);
 	const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token') && new Date(localStorage.getItem('expiration')) > now) ? true : false);
 	const [myPosts, setMyPosts] = useState([])
 	const [alertVisible, setAlertVisible] = useState(false)
+	const [dailyId, setDailyId] = useState(localStorage.getItem('daily'));
 
 	const flashMessage = (message, category) => {
 		setMessage(message);
@@ -38,7 +39,7 @@ function App(props) {
 
 		setTimeout(() => {
 			setAlertVisible(false);
-		}, 3000);
+		}, 2000);
 	}
 
 	const verifyUser = (username) => {
@@ -52,6 +53,8 @@ function App(props) {
 	const logout = () => {
 		localStorage.removeItem('token');
 		localStorage.removeItem('expiration');
+		localStorage.removeItem('username')
+		localStorage.removeItem('daily')
 		setLoggedIn(false)
 		console.log('logging out')
 	}
@@ -67,17 +70,17 @@ function App(props) {
 					<Route path="/register" element={<Register flashMessage={flashMessage} login={login} verifyUser={verifyUser} loggedIn={loggedIn} username={username} setUsername={setUsername} />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/rules" element={<Rules />} />
-					<Route path="/landing" element={<Landing loggedIn={loggedIn} flashMessage={flashMessage} />} />
-					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} />} />
-					<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn} />} />
+					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} username={username} dailyId={dailyId} setDailyId={setDailyId} />} />
+					<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn} dailyId={dailyId} setDailyId={setDailyId} />} />
 					<Route path='/random' element={<RandomPromptCard />} />
-					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage}/>} />
+					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage} dailyId={dailyId} setDailyId={setDailyId}/>} />
 					<Route path='/savedAnswer' element={<SavedAnswer />} />
 					<Route path='/singleAnswer' element={<SingleAnswer />} />
 					<Route path='/deleteButton' element={<DeleteButton />} />
 					<Route path='/allDaily' element={<AllDaily />} />
 					<Route path='/allRandom' element={<AllRandom />} />
 					<Route path='/getUsername' element={<GetUsername />} />
+					<Route path='/editForm' element={<EditForm flashMessage={flashMessage} setUsername={setUsername} />} />
 
 				</Routes>
 			</div>
