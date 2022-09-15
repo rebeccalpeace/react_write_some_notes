@@ -1,7 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import './Home.css'
 
 export default function Register({flashMessage, login, verifyUser, loggedIn, username, setUsername}) {
 
@@ -109,35 +110,47 @@ export default function Register({flashMessage, login, verifyUser, loggedIn, use
 
     return (
         <>
-            <form className="row g-3" onSubmit={handleSubmit}>
-                <div className="col-6">
-                    <label htmlFor="first_name" className="form-label">first name</label>
-                    <input type="text" className="form-control" id="first_name" placeholder="enter first name" name="first_name" required/>
+            <div className="home-background">
+                <div className="container home-height home-background">
+                    <br />
+                    <div className='text-center'>
+                        <Link className='fs-4 register-link' to="/">
+                            <span className='text-center register-words'>write</span>
+                            <span className='text-center register-words'>some</span>
+                            <span className='text-center register-words'>notes</span>
+                        </Link>
+                    </div>
+                    <form className="row g-3 mt-5" onSubmit={handleSubmit}>
+                        <div className="col-6">
+                            <label htmlFor="first_name" className="form-label form-words fw-bold">first name</label>
+                            <input type="text" className="form-control form-inputs" id="first_name" placeholder="enter first name" name="first_name" required/>
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="last_name" className="form-label form-words fw-bold">last name</label>
+                            <input type="text" className="form-control form-inputs" id="last_name" placeholder='enter last name' name="last_name" required/>
+                        </div>
+                        <div className="col-12">
+                            <label htmlFor="email" className="form-label form-words fw-bold">email</label>
+                            <input type="text" className="form-control form-inputs" id="email" placeholder="enter email" name="email" required/>
+                        </div>
+                        <div className="col-md-12">
+                            <label htmlFor="username" className="form-label form-words fw-bold">username</label>
+                            <input type="text" className="form-control form-inputs" id="username" placeholder='enter username' name="username" required/>
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="password" className="form-label form-words fw-bold">password</label>
+                            <input type="password" className="form-control form-inputs" id="password" placeholder='enter password' name="password" required/>
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="confirmPassword" className="form-label form-words fw-bold">confirm password</label>
+                            <input type="password" className="form-control form-inputs" id="confirmPassword" placeholder='confirm password' name="confirmPass" required/>
+                        </div>
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary form-button">sign up</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="col-md-6">
-                    <label htmlFor="last_name" className="form-label">last name</label>
-                    <input type="text" className="form-control" id="last_name" placeholder='enter last name' name="last_name" required/>
-                </div>
-                <div className="col-12">
-                    <label htmlFor="email" className="form-label">email</label>
-                    <input type="text" className="form-control" id="email" placeholder="enter email" name="email" required/>
-                </div>
-                <div className="col-md-12">
-                    <label htmlFor="username" className="form-label">username</label>
-                    <input type="text" className="form-control" id="username" placeholder='enter username' name="username" required/>
-                </div>
-                <div className="col-md-6">
-                    <label htmlFor="password" className="form-label">password</label>
-                    <input type="password" className="form-control" id="password" placeholder='enter password' name="password" required/>
-                </div>
-                <div className="col-md-6">
-                    <label htmlFor="confirmPassword" className="form-label">confirm password</label>
-                    <input type="password" className="form-control" id="confirmPassword" placeholder='confirm password' name="confirmPass" required/>
-                </div>
-                <div className="col-12">
-                    <button type="submit" className="btn btn-primary">sign up</button>
-                </div>
-            </form>
+            </div>
         </>
     )
 }

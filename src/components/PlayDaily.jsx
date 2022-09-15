@@ -183,24 +183,26 @@ export default function PlayDaily(props) {
 
     return (
         <>
-            <div className="daily-container">
-                <div className="DailyCard">
-                    {state.dailyCard && <DailyPromptCard setDailyId={props.setDailyId}/>}
-                    {!state.dailyCard && <RandomPromptCard setRandomId={setRandomId}/>}
-                </div>
-                <div className="WordsForm">
-                    <h5 className='text-center'>place words here</h5>
-                    <div className="word-container words-form">
-                        {letters.map((letter, i) => <div key={i} className={letter} onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, `played_${letter}`)}>{options[`played_${letter}`]}</div>)}
-                     
+            <div className="container">
+                <div className="daily-container">
+                    <div className="DailyCard">
+                        {state.dailyCard && <DailyPromptCard setDailyId={props.setDailyId}/>}
+                        {!state.dailyCard && <RandomPromptCard setRandomId={setRandomId}/>}
                     </div>
-                    <div className='d-flex justify-content-around'>
-                        <button className='btn btn-sm btn-warning mb-2' onClick={(e) => handleClear(e)}>clear board</button>
-                        <button className="btn btn-sm btn-primary mb-2 save-button" onClick={(e) => handleSave(e)}>save answer</button>
+                    <div className="WordsForm">
+                        <h5 className='text-center'>place words here</h5>
+                        <div className="word-container words-form">
+                            {letters.map((letter, i) => <div key={i} className={letter} onDragOver={(e) => onDragOver(e)} onDrop={(e) => onDrop(e, `played_${letter}`)}>{options[`played_${letter}`]}</div>)}
+                        
+                        </div>
+                        <div className='d-flex justify-content-around'>
+                            <button className='btn btn-sm btn-warning mb-2' onClick={(e) => handleClear(e)}>clear board</button>
+                            <button className="btn btn-sm btn-primary mb-2 save-button" onClick={(e) => handleSave(e)}>save answer</button>
+                        </div>
                     </div>
-                </div>
-                <div className="Words" onDragOver={(e) => onDragOver(e)} onDrop={(e)=>{onDrop(e, "toPlay")}}>
-                    {options.toPlay}
+                    <div className="Words" onDragOver={(e) => onDragOver(e)} onDrop={(e)=>{onDrop(e, "toPlay")}}>
+                        {options.toPlay}
+                    </div>
                 </div>
             </div>
         </>

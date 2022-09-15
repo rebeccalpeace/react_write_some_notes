@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import './Navbar.css'
 
 export default function Login(props) {
 
@@ -46,11 +47,13 @@ export default function Login(props) {
 
     return (
         <>
-            <form className="" onSubmit={handleSubmit}>
-                <input className="" type="text" placeholder="username" name="username"/>
-                <input className="" type="password" placeholder="password" name="password"/>
-                <button className="btn btn-outline-success" type="submit">sign in</button>
-            </form>
+            <div className='my-auto'>
+                <form className="" onSubmit={handleSubmit}>
+                    <input className="login-inputs" type="text" placeholder="username" name="username"/>
+                    <input className="login-inputs mx-2" type="password" placeholder="password" name="password"/>
+                    <button className="sign-in" type="submit">sign in</button>
+                </form>
+            </div>
         </>
     )
 }

@@ -1,0 +1,88 @@
+.title-words {
+    border: solid black 1px;
+    background-color: white;
+    padding: 0 15px;
+    margin: 200px 10px;
+}
+
+.register-words {
+    border: solid black 1px;
+    background-color: white;
+    padding: 0 15px;
+    margin: 200px 10px;
+}
+
+.register-link {
+    text-decoration: none;
+    color: black;
+}
+
+.register-link:hover {
+    color: #1F47D0;
+}
+
+.form-words {
+    color: #1F47D0;
+}
+
+.form-inputs {
+    border: solid #1F47D0 2px;
+    border-radius: 5px;
+}
+
+.form-button {
+    background-color: #A0AFFC;
+    border: solid #1F47D0 2px;
+    border-radius: 5px;
+    color: #1F47D0;
+}
+
+.form-button:hover {
+    background-color: black;
+    border: solid black 2px;
+    color: #A0AFFC;
+}
+
+.home-height {
+    height: 100vh;
+}
+
+.home-background {
+    background-color: #A0AFFC;
+}
+
+.blue {
+    background-color: #459097;
+}
+
+.pink {
+    background-color: #D8A3AE;
+}
+
+.yellow {
+    background-color: #DBB84D;
+}
+
+.purple {
+    background-color: #A0AFFC;
+}
+
+.purple-words {
+    background-color: #1F47D0;
+}
+
+.peach {
+    background-color: #F7B3A8;
+}
+
+.peach-words {
+    background-color: #E56452;
+}
+
+.orange {
+    background-color: #FAD5B0;
+}
+
+.orange-words {
+    background-color: #fc7f03;
+}

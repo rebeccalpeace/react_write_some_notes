@@ -1,0 +1,50 @@
+.sign-up {
+    background-color: #A0AFFC;
+    border: solid #1F47D0 2px;
+    border-radius: 5px;
+}
+
+.sign-up-link {
+    text-decoration: none;
+    color: #1F47D0;
+}
+
+.sign-up:hover {
+    background-color: black;
+    border: solid black 2px;
+}
+
+.sign-up-link:hover {
+    color: #A0AFFC;
+}
+
+.rules-link {
+    color: #1F47D0;
+}
+
+.rules-link:hover {
+    color: black;
+}
+
+.custom-nav {
+    background-color: #A0AFFC;
+    border-bottom: solid #1F47D0 2px;
+}
+
+.sign-in {
+    background-color: #A0AFFC;
+    border: solid #1F47D0 2px;
+    border-radius: 5px;
+    color: #1F47D0;
+}
+
+.sign-in:hover {
+    background-color: black;
+    border: solid black 2px;
+    color: #A0AFFC;
+}
+
+.login-inputs {
+    border: solid #1F47D0 2px;
+    border-radius: 5px;
+}

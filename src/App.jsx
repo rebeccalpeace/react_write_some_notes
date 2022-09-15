@@ -63,7 +63,7 @@ function App(props) {
 	return (
 		<>
 			<Navbar loggedIn={loggedIn} logout={logout} login={login} flashMessage={flashMessage} username={username} verifyUser={verifyUser}/>
-			<div className="container">
+			<div className="">
 				{message ? <AlertMessage message={message} category={category} alertVisible={alertVisible} setAlertVisible={setAlertVisible} flashMessage={flashMessage} /> : null}
 				<Routes>
 					<Route path="/" element={<Home />} />
