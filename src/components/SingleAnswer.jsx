@@ -13,6 +13,8 @@ export default function SingleAnswer({post, setMyPosts}) {
     const [dailyId, setDailyId] = useState([]);
     const [randomId, setRandomId] = useState([]);
 
+    console.log(post, "test single")
+
 
     useEffect(() => {
 
@@ -41,7 +43,11 @@ export default function SingleAnswer({post, setMyPosts}) {
                 setRandomId(data)
             })
         }
-    }, [dailyId, randomId]) 
+    }, []) 
+
+
+    console.log(dailyId, "daily Id")
+    console.log(randomId, "test random")
 
 
     let cleanedWords = []

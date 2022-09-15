@@ -10,6 +10,9 @@ import './Profile.css'
 export default function Profile(props) {
 
     let navigate = useNavigate();
+    const [dailyCard, setDailyCard] = useState(true)
+    const [dailyAlreadyDone, setDailyAlreadyDone] = useState(false)
+    
 
     if (props.loggedIn === false){
         props.flashMessage('You need to be logged in to see your profile!', 'warning')
@@ -38,6 +41,7 @@ export default function Profile(props) {
                 .then(data => {
                     setMyPosts(data)
                     setShouldFetchUser(true)
+                    
                 })
             }
         fetchAnswers()
@@ -61,6 +65,7 @@ export default function Profile(props) {
                 .then(data => {
                     localStorage.setItem('username', data.username)
                     setUserData(data)
+                    
                 })
         }
         fetchUser();
@@ -68,16 +73,34 @@ export default function Profile(props) {
         setShouldFetchUser(false)
     }, [shouldFetchUser])
 
-    console.log(userData, "userdata")
 
+    // let dailyDone = localStorage.getItem('daily')
+
+    // for (let i in myPosts){
+    //     if (myPosts[i]['daily_id'] == dailyDone){
+    //         setDailyAlreadyDone(true)
+    //         break
+    //     }
+    //     console.log(dailyAlreadyDone)
+    // }
+
+    let playButtons;
+
+    if (dailyAlreadyDone){
+        playButtons = <button className='btn btn-warning mx-4' onClick={() => (navigate('/playDaily', { state: { dailyCard: setDailyCard(false)}}))}>play random</button>
+    } else {
+        playButtons = <>
+        <button className='btn btn-warning mx-4' onClick={() => (navigate('/playDaily', { state: { dailyCard: dailyCard }}))}>play daily</button>
+        <button className='btn btn-warning mx-4' onClick={() => (navigate('/playDaily', { state: { dailyCard: setDailyCard(false)}}))}>play random</button>
+        </>
+    }
 
 
 
     return (
 		<>
             <div className='pt-3 d-flex justify-content-center'>
-                {/* <button className='btn btn-warning me-4'><Link to="/profile">my games</Link></button> */}
-                <button className='btn btn-warning'><Link to="/landing">play</Link></button>
+                {playButtons} 
             </div>
             <hr />
             

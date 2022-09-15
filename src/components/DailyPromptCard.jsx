@@ -24,11 +24,14 @@ export default function DailyPromptCard(props) {
             .then(res => res.json())
             .then(data => {
                 let dailyPrompt = data.prompt
+                // localStorage.setItem('daily', data.id)
                 props.setDailyId(data.id)
                 setPrompt(dailyPrompt)
+
             })
             
     }, [])   
+
 
     return (
         <>
