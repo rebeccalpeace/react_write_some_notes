@@ -65,24 +65,25 @@ function App(props) {
 			<Navbar loggedIn={loggedIn} logout={logout} login={login} flashMessage={flashMessage} username={username} verifyUser={verifyUser}/>
 			<div className="">
 				{message ? <AlertMessage message={message} category={category} alertVisible={alertVisible} setAlertVisible={setAlertVisible} flashMessage={flashMessage} /> : null}
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/register" element={<Register flashMessage={flashMessage} login={login} verifyUser={verifyUser} loggedIn={loggedIn} username={username} setUsername={setUsername} />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/rules" element={<Rules />} />
-					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} username={username} />} />
-					<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn}  />} />
-					<Route path='/random' element={<RandomPromptCard />} />
-					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage} />} />
-					<Route path='/savedAnswer' element={<SavedAnswer />} />
-					<Route path='/singleAnswer' element={<SingleAnswer />} />
-					<Route path='/deleteButton' element={<DeleteButton />} />
-					<Route path='/allDaily' element={<AllDaily />} />
-					<Route path='/allRandom' element={<AllRandom />} />
-					<Route path='/getUsername' element={<GetUsername />} />
-					<Route path='/editForm' element={<EditForm flashMessage={flashMessage} setUsername={setUsername} />} />
-
-				</Routes>
+				<div>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/register" element={<Register flashMessage={flashMessage} login={login} verifyUser={verifyUser} loggedIn={loggedIn} username={username} setUsername={setUsername} />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/rules" element={<Rules />} />
+						<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} username={username} />} />
+						<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn}  />} />
+						<Route path='/random' element={<RandomPromptCard />} />
+						<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage} />} />
+						<Route path='/savedAnswer' element={<SavedAnswer />} />
+						<Route path='/singleAnswer' element={<SingleAnswer />} />
+						<Route path='/deleteButton' element={<DeleteButton />} />
+						<Route path='/allDaily' element={<AllDaily />} />
+						<Route path='/allRandom' element={<AllRandom />} />
+						<Route path='/getUsername' element={<GetUsername />} />
+						<Route path='/editForm' element={<EditForm flashMessage={flashMessage} setUsername={setUsername} />} />
+					</Routes>
+				</div>
 			</div>
 
 		</>
