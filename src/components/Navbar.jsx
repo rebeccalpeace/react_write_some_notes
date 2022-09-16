@@ -28,9 +28,9 @@ export default function Navbar(props) {
                             <Link className="nav-link my-auto fw-bold sign-out" to="/" onClick={props.logout}>sign out</Link>
                                 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div className="modal-dialog">
-                                        <div className="modal-content">
+                                        <div className="modal-content rules">
                                             <div className="modal-header">
-                                                <h5 className="modal-title" id="exampleModalLabel">Rules</h5>
+                                                <h5 className="modal-title fw-bold" id="exampleModalLabel">Rules</h5>
                                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div className="modal-body">

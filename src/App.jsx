@@ -30,7 +30,7 @@ function App(props) {
 	const [loggedIn, setLoggedIn] = useState((localStorage.getItem('token') && new Date(localStorage.getItem('expiration')) > now) ? true : false);
 	const [myPosts, setMyPosts] = useState([])
 	const [alertVisible, setAlertVisible] = useState(false)
-	const [dailyId, setDailyId] = useState(localStorage.getItem('daily'));
+	// const [dailyId, setDailyId] = useState(localStorage.getItem('daily'));
 
 	const flashMessage = (message, category) => {
 		setMessage(message);
@@ -70,10 +70,10 @@ function App(props) {
 					<Route path="/register" element={<Register flashMessage={flashMessage} login={login} verifyUser={verifyUser} loggedIn={loggedIn} username={username} setUsername={setUsername} />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/rules" element={<Rules />} />
-					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} username={username} dailyId={dailyId} setDailyId={setDailyId} />} />
-					<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn} dailyId={dailyId} setDailyId={setDailyId} />} />
+					<Route path="/profile" element={<Profile myPosts={myPosts} setMyPosts={setMyPosts} loggedIn={loggedIn} flashMessage={flashMessage} username={username} />} />
+					<Route path='/daily' element={<DailyPromptCard loggedIn={loggedIn}  />} />
 					<Route path='/random' element={<RandomPromptCard />} />
-					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage} dailyId={dailyId} setDailyId={setDailyId}/>} />
+					<Route path='/playDaily' element={<PlayDaily flashMessage={flashMessage} />} />
 					<Route path='/savedAnswer' element={<SavedAnswer />} />
 					<Route path='/singleAnswer' element={<SingleAnswer />} />
 					<Route path='/deleteButton' element={<DeleteButton />} />

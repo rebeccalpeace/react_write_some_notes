@@ -84,16 +84,15 @@ export default function Profile(props) {
     //     console.log(dailyAlreadyDone)
     // }
 
-    let playButtons;
+    // let playButtons;
 
-    if (dailyAlreadyDone){
-        playButtons = <button className='btn btn-warning mx-4' onClick={() => (navigate('/playDaily', { state: { dailyCard: setDailyCard(false)}}))}>play random</button>
-    } else {
-        playButtons = <>
-        <button className='mx-4 play-buttons fw-bold' onClick={() => (navigate('/playDaily', { state: { dailyCard: dailyCard }}))}>play daily</button>
-        <button className='mx-4 play-buttons fw-bold' onClick={() => (navigate('/playDaily', { state: { dailyCard: setDailyCard(false)}}))}>play random</button>
-        </>
-    }
+    // if (dailyAlreadyDone){
+    //     playButtons = <button className='btn btn-warning mx-4' onClick={() => (navigate('/playDaily', { state: { dailyCard: setDailyCard(false)}}))}>play random</button>
+    // } else {
+    //     playButtons = <>
+        
+    //     </>
+    // }
 
 
 
@@ -102,7 +101,8 @@ export default function Profile(props) {
             <div className='profile-background'>
                 <div className="container profile-height">
                     <div className='pt-3 d-flex justify-content-center'>
-                        {playButtons} 
+                        <button className='mx-4 play-buttons fw-bold' onClick={() => (navigate('/playDaily', { state: { dailyCard: dailyCard }}))}>play daily</button>
+                        <button className='mx-4 play-buttons fw-bold' onClick={() => (navigate('/playDaily', { state: { dailyCard: setDailyCard(false)}}))}>play random</button>
                     </div>
                     <hr />
                     

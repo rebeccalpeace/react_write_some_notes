@@ -17,6 +17,7 @@ export default function PlayDaily(props) {
     console.log(props, "test props")
 
     const [words, setWords] = useState([])
+    const [dailyId, setDailyId] = useState(null)
     const [randomId, setRandomId] = useState(null)
 
     useEffect(() => {
@@ -112,7 +113,7 @@ export default function PlayDaily(props) {
             line3: line3.join(" "),
             line4: line4.join(" "),
             line5: line5.join(" "),
-            daily_id: props.dailyId,
+            daily_id: dailyId,
             prompt_id: randomId
         })
 
@@ -132,7 +133,7 @@ export default function PlayDaily(props) {
 
         savedWords.push(line1, line2, line3, line4, line5)
 
-        navigate('/savedAnswer', { state: { savedWords: savedWords, dailyId: props.dailyId, randomId: randomId }})
+        navigate('/savedAnswer', { state: { savedWords: savedWords, dailyId: dailyId, randomId: randomId }})
     }
 
 
@@ -187,7 +188,7 @@ export default function PlayDaily(props) {
                 <div className="container play-height">
                     <div className="daily-container">
                         <div className="DailyCard mt-4">
-                            {state.dailyCard && <DailyPromptCard setDailyId={props.setDailyId}/>}
+                            {state.dailyCard && <DailyPromptCard setDailyId={setDailyId}/>}
                             {!state.dailyCard && <RandomPromptCard setRandomId={setRandomId}/>}
                         </div>
                         <div className="WordsForm">
