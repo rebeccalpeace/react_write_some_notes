@@ -35,7 +35,6 @@ export default function Login(props) {
 
         props.login();
 
-        props.flashMessage('You are now loggedin ', 'primary')
         navigate('/profile')
         console.log('logged in')
         } else {
@@ -51,7 +50,7 @@ export default function Login(props) {
                 <form className="" onSubmit={handleSubmit}>
                     <input className="login-inputs" type="text" placeholder="username" name="username"/>
                     <input className="login-inputs mx-2" type="password" placeholder="password" name="password"/>
-                    <button className="sign-in" type="submit">sign in</button>
+                    <button className="sign-in fw-bold" type="submit">sign in</button>
                 </form>
             </div>
         </>

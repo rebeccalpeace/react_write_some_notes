@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import './All.css'
 
 export default function GetUsername(user_id) {
 
@@ -25,6 +26,6 @@ export default function GetUsername(user_id) {
 
 
   return (
-    <div className='text-center'>{user.username}</div>
+    <div className='text-center prompt-title fw-bold'>{user.username}</div>
   )
 }

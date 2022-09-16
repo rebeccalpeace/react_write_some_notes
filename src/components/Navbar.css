@@ -1,7 +1,15 @@
+.nav-title {
+    border: solid black 1px;
+    background-color: white;
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
 .sign-up {
     background-color: #A0AFFC;
     border: solid #1F47D0 2px;
-    border-radius: 5px;
+    border-radius: 10px;
+    padding: 5px 10px;
 }
 
 .sign-up-link {
@@ -17,6 +25,8 @@
 .sign-up-link:hover {
     color: #A0AFFC;
 }
+
+
 
 .rules-link {
     color: #1F47D0;
@@ -34,8 +44,9 @@
 .sign-in {
     background-color: #A0AFFC;
     border: solid #1F47D0 2px;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #1F47D0;
+    padding: 5px 10px;
 }
 
 .sign-in:hover {
@@ -48,3 +59,42 @@
     border: solid #1F47D0 2px;
     border-radius: 5px;
 }
+
+
+/* css for logged in navbar */
+
+.custom-nav-loggedin {
+    background-color: #A0AFFC;
+    border-bottom: solid #1F47D0 2px;
+}
+
+.sign-out {
+    background-color: #A0AFFC;
+    border: solid #1F47D0 2px;
+    border-radius: 10px;
+    color: #1F47D0;
+}
+
+.sign-out:hover {
+    background-color: black;
+    color: #A0AFFC;
+    border: solid black 2px;
+}
+
+.rules-link-loggedin {
+    color: #1F47D0;
+}
+
+.rules-link-loggedin:hover {
+    color: black;
+}
+
+.username-color {
+    color: #1F47D0;
+    text-decoration: none;
+}
+
+.username-color:hover {
+    color: black;
+}
+

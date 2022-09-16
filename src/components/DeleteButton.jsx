@@ -82,7 +82,7 @@ export default function DeleteButton({id, setMyPosts}) {
     return (
         <>
             <div className="btn-group delete-button">
-                <button className="btn btn-sm btn-danger dropdown-toggle text-center my-auto" data-bs-toggle="dropdown" aria-expanded="false">delete</button>
+                <button className="btn btn-sm dropdown-toggle text-center my-auto fw-bold delete-color" data-bs-toggle="dropdown" aria-expanded="false">delete</button>
                 <ul className="dropdown-menu">
                     <li className='text-center'>Are you sure?</li>
                     <li><hr className="dropdown-divider" /></li>

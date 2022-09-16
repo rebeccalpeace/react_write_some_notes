@@ -1,3 +1,15 @@
+.play-background {
+    background-color: #BCE7B0;
+    background-image: 
+        linear-gradient(#BCE7B0, #A0AFFC);
+    background-attachment: fixed;
+}
+
+
+.play-height {
+  height: auto;
+}
+
 .daily-container {  
     display: grid;
     text-align: center;
@@ -14,14 +26,10 @@
   
   .DailyCard { 
       grid-area: DailyCard; 
-      border: solid black 2px;
-      background-color: yellow;
     }
   
   .WordsForm { 
       grid-area: WordsForm; 
-      border: solid black 2px;
-      background-color: orange;
     }
   
   .Words { 
@@ -31,8 +39,6 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      border: solid black 2px;
-      background-color: pink;
     }
 
   .play-word {
@@ -46,23 +52,63 @@
     margin: 10px auto;
     height: 350px;
     width: 525px;
-    border: solid black 2px;
+    border: solid #589945 2px;
     border-radius: 10px;
     background-color: white;
 }
 
+.place {
+  color: #589945
+}
+
 .save-button {
-  background-color: #fc0384;
-  color: white;
-  border: solid #fc0384;
+  background-color: #BCE7B0;
+  border: solid #589945 2px;
+  border-radius: 10px;
+  color: #589945;
+}
+
+.save-button:hover {
+  background-color: black;
+  border: solid black 2px;
+  color: #BCE7B0;
+}
+
+.clear-button {
+  background-color: #A0AFFC;
+  border: solid #1F47D0 2px;
+  border-radius: 10px;
+  color: #1F47D0;
+  
+}
+
+.clear-button:hover {
+  background-color: black;
+  border: solid black 2px;
+  color: #A0AFFC;
 }
 
 .delete-button {
-    opacity: 0.8;
+    background-color: white;
+    border: solid #E56452 2px;
+    border-radius: 10px;
     position: absolute;
     top: 250px;
     left: 360px;
     z-index: 1;
+}
+
+.delete-button:hover {
+  background-color: black;
+  border: solid black 2px;
+}
+
+.delete-color {
+  color: #E56452;
+}
+
+.delete-color:hover {
+  color: #F7B3A8;
 }
 
 

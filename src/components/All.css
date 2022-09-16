@@ -1,0 +1,28 @@
+.all-background {
+    background-color: #FAD5B0;
+    background-image: 
+        linear-gradient(#FAD5B0, #A0AFFC);
+    background-attachment: fixed;
+}
+
+.all-height {
+    height: auto;
+}
+
+.all-buttons {
+    background-color: #FAD5B0;
+    border: solid #fc7f03 2px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #fc7f03;
+}
+
+.all-buttons:hover {
+    background-color: black;
+    border: solid black 2px;
+    color: #FAD5B0;
+}
+
+.prompt-title {
+    color: #fc7f03;
+}

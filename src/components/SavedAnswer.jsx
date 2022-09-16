@@ -49,13 +49,15 @@ export default function SavedAnswer() {
 
     return (
         <>
-            <div className="container">
-                <div className='d-flex justify-content-center my-4'>
-                    <Link to="/profile" className='btn btn-warning mx-4'>my games</Link>
-                    {/* <Link to="/landing" className='btn btn-warning mx-4'>play again</Link> */}
-                </div>
-                <div className="container saved d-flex flex-column justify-content-around">
-                    {divs}
+            <div className='saved-background'>
+                <div className="container saved-height">
+                    <div className='d-flex justify-content-center mb-4'>
+                        <Link to="/profile" className='btn saved-buttons fw-bold mx-4 mt-3'>my games</Link>
+                        {/* <Link to="/landing" className='btn btn-warning mx-4'>play again</Link> */}
+                    </div>
+                    <div className="container saved d-flex flex-column justify-content-around">
+                        {divs}
+                    </div>
                 </div>
             </div>
         </>

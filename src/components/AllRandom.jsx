@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import BuildSingle from './BuildSingle';
+import './All.css'
 
 export default function AllRandom() {
 	const [allAnswers, setAllAnswers] = useState([])
@@ -31,13 +32,15 @@ export default function AllRandom() {
 
     return (
 		<>
-            <div className="container">
-                <div className='d-flex justify-content-center my-4'>
-                    <Link to="/profile" className='btn btn-warning mx-4'>my games</Link>
-                    {/* <Link to="/landing" className='btn btn-warning mx-4'>play</Link> */}
+            <div className='all-background'>
+                <div className="container all-height">
+                    <div className='d-flex justify-content-center mb-4'>
+                        <Link to="/profile" className='btn all-buttons fw-bold mx-4 mt-3'>my games</Link>
+                        {/* <Link to="/landing" className='btn btn-warning mx-4'>play</Link> */}
+                    </div>
+                    <div className='text-center my-3 fs-4 fw-bold prompt-title'>{state.prompt}</div>
+                    {allAnswers.map((answer, i) => <BuildSingle key={i} answer={answer} />)}
                 </div>
-                <div className='text-center my-3 fs-4 fw-bold'>{state.prompt}</div>
-                {allAnswers.map((answer, i) => <BuildSingle key={i} answer={answer} />)}
             </div>
 		</>
     )

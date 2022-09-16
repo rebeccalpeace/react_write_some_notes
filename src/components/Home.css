@@ -33,8 +33,9 @@
 .form-button {
     background-color: #A0AFFC;
     border: solid #1F47D0 2px;
-    border-radius: 5px;
+    border-radius: 10px;
     color: #1F47D0;
+    
 }
 
 .form-button:hover {
@@ -85,4 +86,20 @@
 
 .orange-words {
     background-color: #fc7f03;
+}
+
+.green {
+    background-color: #BCE7B0;
+}
+
+.green-words {
+    background-color: #589945;
+}
+
+.pink {
+    background-color: #F3BBF7;
+}
+
+.pink-words {
+    background-color: #dd55e6;
 }

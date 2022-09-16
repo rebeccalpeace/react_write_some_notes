@@ -1,0 +1,41 @@
+.edit-background {
+    background-color: #F3BBF7;
+    background-image: 
+        linear-gradient(#F3BBF7, #A0AFFC);
+    background-attachment: fixed;
+}
+
+.edit-height {
+    height: 100vh;
+}
+
+.edit-buttons {
+    background-color: #F3BBF7;
+    border: solid #dd55e6 2px;
+    border-radius: 10px;
+    color: #dd55e6;
+}
+
+.edit-link {
+    text-decoration: none;
+    color: #dd55e6;
+}
+
+.edit-link:hover {
+    color: #F3BBF7;
+}
+
+.edit-buttons:hover {
+    background-color: black;
+    border: solid black 2px;
+    color: #F3BBF7;
+}
+
+.edit-labels {
+    color: #dd55e6;
+}
+
+.edit-fields {
+    border: solid #dd55e6 2px;
+    border-radius: 10px;
+}

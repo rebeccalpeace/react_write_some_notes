@@ -1,4 +1,42 @@
 .games {
     font-size: 12px;
+    color: #E56452;
 }
 
+.games-title {
+    color: #E56452;
+}
+
+.username {
+    color: #E56452;
+}
+
+.profile-background {
+    background-color: #F7B3A8;
+    background-image: 
+        linear-gradient(#F7B3A8, #A0AFFC);
+    background-attachment: fixed;
+}
+
+.profile-height {
+    height: auto;
+}
+
+hr {
+    color: #E56452;
+    border-top: solid 3px;
+}
+
+.play-buttons {
+    background-color: #F7B3A8;
+    border: solid #E56452 2px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #E56452;
+}
+
+.play-buttons:hover {
+    background-color: black;
+    border: solid black 2px;
+    color: #F7B3A8;
+}

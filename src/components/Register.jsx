@@ -50,7 +50,6 @@ export default function Register({flashMessage, login, verifyUser, loggedIn, use
                         navigate('/register')
                         flashMessage('This username and/or email already exists', 'warning')
                     } else {
-                        flashMessage('You have successfully signed up!', 'primary')
                         setUsername(e.target.username.value)
                         setPassword(e.target.password.value)
                         setShouldLogin(true)
@@ -91,7 +90,6 @@ export default function Register({flashMessage, login, verifyUser, loggedIn, use
 
                 login();
 
-                flashMessage('You are now loggedin ', 'primary')
                 navigate('/profile')
                 console.log('logged in')
                 console.log(data.token)
@@ -146,7 +144,7 @@ export default function Register({flashMessage, login, verifyUser, loggedIn, use
                             <input type="password" className="form-control form-inputs" id="confirmPassword" placeholder='confirm password' name="confirmPass" required/>
                         </div>
                         <div className="col-12">
-                            <button type="submit" className="btn btn-primary form-button">sign up</button>
+                            <button type="submit" className="btn form-button fw-bold">sign up</button>
                         </div>
                     </form>
                 </div>

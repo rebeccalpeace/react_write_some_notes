@@ -1,5 +1,6 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
+import './EditForm.css'
 
 
 export default function EditForm(props) {
@@ -56,37 +57,39 @@ export default function EditForm(props) {
     }   
 
     return (
-        <>  
-            <div className="container">
-                <form className="row g-3" onSubmit={handleUpdate}>
-                    <div className="col-6">
-                        <label htmlFor="first_name" className="form-label">first name</label>
-                        <input type="text" className="form-control" id="first_name" name="first_name" defaultValue={state.first_name} required/>
-                    </div>
-                    <div className="col-md-6">
-                        <label htmlFor="last_name" className="form-label">last name</label>
-                        <input type="text" className="form-control" id="last_name" name="last_name" defaultValue={state.last_name} required/>
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="email" className="form-label">email</label>
-                        <input type="text" className="form-control" id="email" name="email" defaultValue={state.email} required/>
-                    </div>
-                    <div className="col-md-12">
-                        <label htmlFor="username" className="form-label">username</label>
-                        <input type="text" className="form-control" id="username" name="username" defaultValue={state.username} required/>
-                    </div>
-                    <div className="col-md-6">
-                        <label htmlFor="password" className="form-label">password</label>
-                        <input type="password" className="form-control" id="password" placeholder='enter password' name="password" required/>
-                    </div>
-                    <div className="col-md-6">
-                        <label htmlFor="confirmPassword" className="form-label">confirm password</label>
-                        <input type="password" className="form-control" id="confirmPassword" placeholder='confirm password' name="confirmPass" required/>
-                    </div>
-                    <div className="col-12">
-                        <button type="submit" className="btn btn-primary">update</button>
-                    </div>
-                </form>
+        <>  <div className='edit-background'>
+                <div className="container edit-height">
+                    <button className='btn btn-sm edit-buttons fw-bold mt-3 mb-5'><Link className="edit-link" to="/profile">back to profile</Link></button>
+                    <form className="row g-3" onSubmit={handleUpdate}>
+                        <div className="col-6">
+                            <label htmlFor="first_name" className="form-label edit-labels fw-bold">first name</label>
+                            <input type="text" className="form-control edit-fields" id="first_name" name="first_name" defaultValue={state.first_name} required/>
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="last_name" className="form-label edit-labels fw-bold">last name</label>
+                            <input type="text" className="form-control edit-fields" id="last_name" name="last_name" defaultValue={state.last_name} required/>
+                        </div>
+                        <div className="col-12">
+                            <label htmlFor="email" className="form-label edit-labels fw-bold">email</label>
+                            <input type="text" className="form-control edit-fields" id="email" name="email" defaultValue={state.email} required/>
+                        </div>
+                        <div className="col-md-12">
+                            <label htmlFor="username" className="form-label edit-labels fw-bold">username</label>
+                            <input type="text" className="form-control edit-fields" id="username" name="username" defaultValue={state.username} required/>
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="password" className="form-label edit-labels fw-bold">password</label>
+                            <input type="password" className="form-control edit-fields" id="password" placeholder='enter password' name="password" required/>
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="confirmPassword" className="form-label edit-labels fw-bold">confirm password</label>
+                            <input type="password" className="form-control edit-fields" id="confirmPassword" placeholder='confirm password' name="confirmPass" required/>
+                        </div>
+                        <div className="col-12">
+                            <button type="submit" className="btn edit-buttons fw-bold">update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </>
     )
