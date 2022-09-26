@@ -27,3 +27,16 @@
 .prompt-title {
     color: #1F47D0;
 }
+
+.likes-padding {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.flower:hover {
+    color: #1F47D0;
+}
+
+.liked-flower {
+    color: #fc7f03;
+}

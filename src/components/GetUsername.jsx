@@ -26,6 +26,6 @@ export default function GetUsername(user_id) {
 
 
   return (
-    <div className='text-center prompt-title fw-bold'>{user.username}</div>
+    <div className='text-center prompt-title fw-bold pb-5'>{user.username}</div>
   )
 }

@@ -2,9 +2,12 @@ import React from 'react'
 import GetUsername from './GetUsername'
 import './SavedAnswer.css'
 import './SingleAnswer.css'
+import Like from './Like'
+import LikeCount from './LikeCount'
 
 export default function BuildSingle(answer, prompt) {
 
+    console.log(answer)
     let cleanedWords = []
 
     if (answer.answer.line1 !== ''){
@@ -56,11 +59,19 @@ export default function BuildSingle(answer, prompt) {
         <>
             
             <div className='row d-flex justify-content-around'>
-                <div className=" col-8 mx-auto container single d-flex flex-column justify-content-around">
+                <div className="col-8 mx-auto container single d-flex flex-column justify-content-around">
                     {divs}
                 </div>
             </div>
-            <GetUsername user_id={answer.answer.user_id}/>
+            <div className='row'>
+                <div className='col-8 mx-auto container d-flex likes-padding justify-content-between'>
+                    <div className='d-flex'>
+                        <Like answer={answer}/>
+                        <LikeCount />
+                    </div>
+                    <GetUsername user_id={answer.answer.user_id}/>
+                </div>
+            </div>
         </>
 
     )

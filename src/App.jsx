@@ -18,6 +18,8 @@ import AllDaily from './components/AllDaily';
 import AllRandom from './components/AllRandom';
 import GetUsername from './components/GetUsername';
 import EditForm from './components/EditForm';
+import Like from './components/Like';
+import LikeCount from './components/LikeCount';
 
 
 
@@ -82,6 +84,8 @@ function App(props) {
 						<Route path='/allRandom' element={<AllRandom />} />
 						<Route path='/getUsername' element={<GetUsername />} />
 						<Route path='/editForm' element={<EditForm flashMessage={flashMessage} setUsername={setUsername} />} />
+						<Route path='/like' element={<Like />} />
+						<Route path='/likeCount' element={<LikeCount />} />
 					</Routes>
 				</div>
 			</div>
