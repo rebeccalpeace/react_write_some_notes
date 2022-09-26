@@ -96,14 +96,6 @@ export default function Like(answer) {
 
     const {handleLikeClick, error} = useChangeLike();
 
-    // useEffect(() => {
-    //     if (newLike){
-    //         setIsLiked(newLike)
-    //     }
-    // }, [newLike])
-
-    // function like delete func that onclick, will "PUT" to route to change to !isLiked, and then "GET" to get new likes
-    // 
 
     console.log(isLiked, "test isLiked")
     return (

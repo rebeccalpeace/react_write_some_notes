@@ -59,12 +59,12 @@ export default function BuildSingle(answer, prompt) {
         <>
             
             <div className='row d-flex justify-content-around'>
-                <div className="col-8 mx-auto container single d-flex flex-column justify-content-around">
+                <div className="mx-auto container single d-flex flex-column justify-content-around">
                     {divs}
                 </div>
             </div>
             <div className='row'>
-                <div className='col-8 mx-auto container d-flex likes-padding justify-content-between'>
+                <div className='mx-auto container d-flex likes-padding justify-content-between'>
                     <div className='d-flex'>
                         <Like answer={answer}/>
                         <LikeCount />

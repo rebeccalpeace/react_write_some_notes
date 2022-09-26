@@ -29,8 +29,7 @@
 }
 
 .likes-padding {
-    padding-left: 100px;
-    padding-right: 100px;
+    width: 450px;
 }
 
 .flower:hover {
