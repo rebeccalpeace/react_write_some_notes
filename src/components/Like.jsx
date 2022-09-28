@@ -2,10 +2,10 @@ import React from 'react'
 import './All.css'
 import { useState, useEffect } from 'react'
 
-export default function Like(answer) {
-    const [isLiked, setIsLiked] = useState(false)
-    let answer_id = answer["answer"]["answer"]["id"]
-    let creator_id = answer["answer"]["answer"]["user_id"]
+export default function Like({answer, isLiked, setIsLiked}) {
+
+    let answer_id = answer["answer"]["id"]
+    let creator_id = answer["answer"]["user_id"]
 
     // when page loads, useeffect to "GET" if user has liked the answer or not
     useEffect(() => {
@@ -24,7 +24,6 @@ export default function Like(answer) {
                 if (data.error){
                     console.error(data.error)
                 } else {
-                    console.log(data, "data")
                     setIsLiked(data.like)
                 }
             })
@@ -58,7 +57,6 @@ export default function Like(answer) {
                         console.error(data.error)
                         setLikeError(true)
                     } else {
-                        console.log(data, "data")
                         // setIsLiked(data.like)
                         setShouldRefetchLikes(true)
                     }
@@ -97,7 +95,6 @@ export default function Like(answer) {
     const {handleLikeClick, error} = useChangeLike();
 
 
-    console.log(isLiked, "test isLiked")
     return (
         <>
             <div className={`me-3 ${isLiked ? "liked-flower" : "flower"}`} type="button" onClick={() => handleLikeClick()}>

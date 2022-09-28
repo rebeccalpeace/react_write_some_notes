@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import GetUsername from './GetUsername'
 import './SavedAnswer.css'
 import './SingleAnswer.css'
@@ -7,7 +8,9 @@ import LikeCount from './LikeCount'
 
 export default function BuildSingle(answer, prompt) {
 
-    console.log(answer)
+    const [isLiked, setIsLiked] = useState(false)
+
+
     let cleanedWords = []
 
     if (answer.answer.line1 !== ''){
@@ -66,8 +69,8 @@ export default function BuildSingle(answer, prompt) {
             <div className='row'>
                 <div className='mx-auto container d-flex likes-padding justify-content-between'>
                     <div className='d-flex'>
-                        <Like answer={answer}/>
-                        <LikeCount />
+                        <Like answer={answer} isLiked={isLiked} setIsLiked={setIsLiked} />
+                        <LikeCount answer={answer} isLiked={isLiked} setIsLiked={setIsLiked}/>
                     </div>
                     <GetUsername user_id={answer.answer.user_id}/>
                 </div>
